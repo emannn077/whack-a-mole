@@ -3,7 +3,7 @@ const levelEasy = document.querySelector("#easy")
 const levelMedium = document.querySelector("#medium")
 const levelDifficult = document.querySelector("#difficult")
 
-//Function
+//Function for Logic
 
 const nextPage = (level) => {
   window.location.href = `${level}.html`
