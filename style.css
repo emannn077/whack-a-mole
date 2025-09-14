@@ -22,7 +22,7 @@ main {
   flex-direction: column;
   padding: 110px;
 }
-/* div {
+.mode {
   display: flexbox;
   flex-direction: column;
   padding: 12px;
@@ -31,7 +31,7 @@ main {
   margin: 15px 0px 0px 0px;
   background-color: aquamarine;
   border-radius: 10px;
-} */
+}
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -43,15 +43,30 @@ main {
   height: 70vh;
   gap: 10px;
 }
+/* #gameOver {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 20px;
+  color: blue;
+} */
 
 .hole {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: lightblue;
-  border-radius: 20px;
+  border-radius: 90px;
   color: rgb(18, 202, 21);
+  height: 145px;
+  width: 145px;
+  position: relative;
+  overflow: hidden;
 }
 .mole {
+  /* position: absolute; */
   color: white;
   background-color: green;
-  height: 20vh;
-  width: 20vw;
+  height: 200px;
+  width: 200px;
 }
