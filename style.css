@@ -22,13 +22,36 @@ main {
   flex-direction: column;
   padding: 110px;
 }
-div {
+/* div {
   display: flexbox;
   flex-direction: column;
   padding: 12px;
   font-size: 40px;
   color: white;
-  background-color: black;
   margin: 15px 0px 0px 0px;
+  background-color: aquamarine;
   border-radius: 10px;
+} */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  padding: 12px;
+  font-size: 40px;
+  color: rgb(231, 141, 141);
+  margin: 15px 0px 0px 0px;
+  height: 70vh;
+  gap: 10px;
+}
+
+.hole {
+  background-color: lightblue;
+  border-radius: 20px;
+  color: rgb(18, 202, 21);
+}
+.mole {
+  color: white;
+  background-color: green;
+  height: 20vh;
+  width: 20vw;
 }
