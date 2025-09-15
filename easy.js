@@ -10,6 +10,7 @@ const holes = document.querySelectorAll(".hole")
 const scoreSection = document.getElementById("score")
 const timerSection = document.getElementById("Timer")
 const moles = document.querySelectorAll(".mole")
+const startBtn = document.querySelector("#startBtn")
 
 let moleTimer
 let countdownTimer
@@ -65,4 +66,4 @@ const showMole = () => {
   // moleTimeFinish = setTimeout(showMole, activeMole)
 }
 
-start()
+startBtn.addEventListener("click", start)

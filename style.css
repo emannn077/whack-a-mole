@@ -1,5 +1,9 @@
 body {
   background-color: peachpuff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 h1 {
   text-align: center;
@@ -7,6 +11,7 @@ h1 {
   align-items: center;
   font-style: italic;
   text-decoration: underline;
+  padding-bottom: 10px;
 }
 h2 {
   text-align: center;
@@ -32,16 +37,21 @@ main {
   background-color: aquamarine;
   border-radius: 10px;
 }
+#startBtn {
+  padding: 10px 20px;
+  font-size: 18px;
+  margin: 20px;
+  cursor: pointer;
+}
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  padding: 12px;
+  padding: 5px;
   font-size: 40px;
   color: rgb(231, 141, 141);
-  margin: 15px 0px 0px 0px;
+  width: 30vw;
   height: 70vh;
-  gap: 10px;
 }
 /* #gameOver {
   text-align: center;
@@ -60,7 +70,7 @@ main {
   color: rgb(18, 202, 21);
   height: 145px;
   width: 145px;
-  position: relative;
+  /* position: relative; */
   overflow: hidden;
 }
 .mole {
