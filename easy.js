@@ -11,6 +11,9 @@ const scoreSection = document.getElementById("score")
 const timerSection = document.getElementById("Timer")
 const moles = document.querySelectorAll(".mole")
 const startBtn = document.querySelector("#startBtn")
+const cursor = document.querySelector(".cursor img")
+
+//i made whack animation using the image and added the function by using a reference/guidance through a youtube vidoes for understanding the concept of it,on how to make whack on cursor and how to add whacking animation in it
 
 let moleTimer
 let countdownTimer
@@ -51,6 +54,17 @@ const start = () => {
   scoreSection.textContent = `Score: ${score}`
   timerSection.textContent = `Time: ${timeLeft}s`
 }
+window.addEventListener("mousemove", (e) => {
+  cursor.style.top = e.pageY + "px"
+  cursor.style.left = e.pageX + "px"
+})
+
+window.addEventListener("click", () => {
+  cursor.style.animation = "hit 0.1s ease"
+  setTimeout(() => {
+    cursor.style.removeProperty("animation")
+  }, 100)
+})
 
 const showMole = () => {
   holes.forEach((sq) => {
