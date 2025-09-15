@@ -15,12 +15,19 @@ const startBtn = document.querySelector("#startBtn")
 let moleTimer
 let countdownTimer
 
+//i used array to store the value/score of each image . i find it MVP
+const differentmoles = [
+  { src: "/Tom and Jerry Nibbles Overeaten Sticker.jpg", points: 20 }, //it will increase score by 20 points
+  { src: "/Jerry.jpg", points: 5 }, //it will increas score by 5 points
+  { src: "/download.jpg", points: -10 }, //it will decrease score by 10 points.
+]
+
 const endGame = () => {
   clearInterval(moleTimer)
   clearInterval(countdownTimer)
 
   holes.forEach((sq) => {
-    sq.textContent = ""
+    sq.innerHTML = ""
   })
 
   alert(`Game over ! your score is ${score}`)
@@ -47,23 +54,35 @@ const start = () => {
 
 const showMole = () => {
   holes.forEach((sq) => {
-    sq.textContent = ""
+    sq.innerHTML = ""
     sq.onclick = null
   })
-
+  // this is to pick random hole
   let randomSq = Math.floor(Math.random() * NumOfMole)
   let sqIndex = holes[randomSq]
 
-  sqIndex.innerText = "mole"
-  // this code is for the index of the hole. its click event losterne that will be for he mole hole
-  sqIndex.onclick = () => {
-    score++
+  //this is to pick random mole images we added
+  const randomMole =
+    differentmoles[Math.floor(Math.random() * differentmoles.length)]
+
+  // sqIndex.innerText = "mole"
+
+  const moleImg = document.createElement("img")
+  moleImg.src = randomMole.src
+  moleImg.classList.add("moleImg")
+  moleImg.style.width = "80px"
+  moleImg.style.cursor = "pointer"
+
+  //this logic is for if i click on the image mole it will give scores accroding to it
+  moleImg.onclick = () => {
+    score += randomMole.points
     scoreSection.textContent = `Score: ${score}`
-    sqIndex.textContent = ""
-    sqIndex.onclick = null // this will remove the old event listener so that it will not the empty hole as score.
+    sqIndex.innerHTML = ""
   }
 
   // moleTimeFinish = setTimeout(showMole, activeMole)
+
+  sqIndex.appendChild(moleImg)
 }
 
 startBtn.addEventListener("click", start)
