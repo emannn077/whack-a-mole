@@ -1,8 +1,8 @@
 //global variable
 
 const NumOfMole = 9
-const gameDuration = 40
-const moleTime = 1500 //milliseconds
+const gameDuration = 30
+const moleTime = 1600 //milliseconds
 let score = 0
 let moleTimeFinish = null
 let timeLeft = gameDuration
@@ -21,9 +21,9 @@ bestScoreSection.textContent = `Best Score: ${bestScore}`
 
 //i used array to store the value/score of each image . i find it MVP
 const differentmoles = [
-  { src: "/Tom and Jerry Nibbles Overeaten Sticker.jpg", points: 20 }, //it will increase score by 20 points
-  { src: "/Jerry.jpg", points: 5 }, //it will increas score by 5 points
-  { src: "/download.jpg", points: -10 }, //it will decrease score by 10 points.
+  { src: "/Annabelle-.png", points: 20 }, //it will increase score by 20 points
+  { src: "/donkey-.png", points: 10 }, //it will increas score by 5 points
+  { src: "/poor_duck.png", points: -10 }, //it will decrease score by 10 points.
 ]
 
 //for bestScore
@@ -55,7 +55,7 @@ const countDown = () => {
 
 const start = () => {
   finalScore.textContent = "" //this code will clear previous final score msg
-  moleTimer = setInterval(showMole, 1500)
+  moleTimer = setInterval(showMole, 1600)
 
   countdownTimer = setInterval(countDown, 1000) //added start countdown
 
@@ -108,6 +108,19 @@ const showMole = () => {
   }
 
   sqIndex.appendChild(moleImg)
+}
+//this is for to check the probability of the character showing randomly on each mole
+let randomNumber = Math.random()
+let character = "duck"
+if (randomNumber < 0.5) {
+  // 50% chance
+  character = "annabelle.png"
+} else if (randomNumber < 0.8) {
+  // 30% chance (0.5 to 0.8)
+  character = "donkey.png"
+} else {
+  // 20% chance (0.8 to 1)
+  character = "poorduck.png"
 }
 
 startBtn.addEventListener("click", start)
