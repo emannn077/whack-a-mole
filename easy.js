@@ -17,7 +17,7 @@ let countdownTimer
 const finalScore = document.querySelector("#finalScore")
 let bestScore = localStorage.getItem("bestScore") || 0
 const bestScoreSection = document.querySelector("#bestScore")
-bestScoreSection.textContent = bestScore
+bestScoreSection.textContent = `Best Score: ${bestScore}`
 
 //i used array to store the value/score of each image . i find it MVP
 const differentmoles = [
@@ -39,7 +39,7 @@ const endGame = () => {
   if (score > bestScore) {
     bestScore = score
     localStorage.setItem("bestScore", bestScore)
-    bestScoreSection.textContent = bestScore
+    bestScoreSection.textContent = `Best Score: ${bestScore}`
   }
 
   finalScore.textContent = `Timer is up! Your final score is ${score}` ///this is to show the final score msg
