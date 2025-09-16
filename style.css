@@ -114,7 +114,6 @@ main {
   color: #fff;
   padding: 20px 40px;
   font-size: 30px;
-
   cursor: pointer;
   background: linear-gradient(145deg, #4b0082, #800080);
   border: 3px solid #ff00ff;
@@ -128,6 +127,7 @@ main {
   box-shadow: 0 0 15px #ff00ff, 0 0 30px #ff00ff, 0 0 60px #ff00ff,
     0 0 80px #ff00ff;
 }
+
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -143,13 +143,13 @@ main {
 .hole {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end; /* mole pops from bottom */
   background-color: lightblue;
-  border-radius: 280px;
-  color: rgb(18, 202, 21);
-  height: 220px;
-  width: 220px;
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
   overflow: hidden;
+  position: relative;
 }
 
 .mole {
@@ -157,6 +157,17 @@ main {
   background-color: green;
   height: 200px;
   width: 200px;
+}
+
+.moleImg {
+  position: relative;
+  bottom: 0; /* stays to bottom */
+  width: 500px;
+  height: 250px;
+  cursor: pointer;
+  /* border-radius: 50%; */
+
+  transition: transform 0.2s;
 }
 
 .main-box {
