@@ -1,12 +1,12 @@
-# Whack-A-Mole
-## Date: 11/09/2025
+# ***MASH n SMASH***
+## Date: 17/09/2025
 
 ### By: Eman Rauf
-#### [GitHub](https://github.com/emannn077/whack-a-mole) | [Linkedin]()
+#### [GitHub](https://github.com/emannn077/whack-a-mole) | [Linkedin](https://linkedin.com/in/emanrauf77)
 
 
 ### ***Description***
-#### Whack-a-Mole is a game where the user/player will whack any character coming out of the mole. The mole will come up and then disappear. There will be game level (Easy, Medium, Difficult) depending on what the player/user wants. Then the game will have timer according to the level itself. There will be s coring system as well. The user can reset the game too.
+#### MASH n SMASH is a game where the user/player will whack any character coming out of the mole. The mole will come up and then disappear. There will be game level (Easy, Medium, Difficult) depending on what the player/user wants. Then the game will have timer according to the level itself. There will be scoring system as well.
 
 ### ***Technologies Used***
 * HTML
@@ -15,11 +15,6 @@
 * Figma
 * Github
 * VS code
-
-### ***Getting Started***
-##### Start the Game and choose the level of the game you want. It can be Easy , Medium and Hard.
-##### According to the level there will be timings of the game. Each mole you whack, the score will increase. And when the time finishes .Your score will be shown
-#### The user can reset the game and play again too.
 
 ### ***Wireframes***
 ##### Wire Frame 1
@@ -30,10 +25,11 @@
 
 
 ### ***Future Update***
-- [x] Creat README file
-- [] Work on HTML page
-- [] Work on Javascript
-- [] Modify the CSS of the game at the end
-- [] Test the Game
+- [ ] Pop up score on images
+
+
 
 #### Credits:
+##### https://www.101soundboards.com/
+##### https://www.w3schools.com/js/js_timing.asp
+##### https://www.reddit.com/r/learnjavascript/comments/ql9yes/how_to_set_up_a_timer_in_javascript/
