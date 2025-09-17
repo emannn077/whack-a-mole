@@ -2,7 +2,7 @@
 
 const NumOfMole = 9
 const gameDuration = 30
-const moleTime = 1600 //milliseconds
+const moleTime = 1300 //milliseconds
 let score = 0
 let moleTimeFinish = null
 let timeLeft = gameDuration
@@ -21,8 +21,8 @@ bestScoreSection.textContent = `Best Score: ${bestScore}`
 
 //i used array to store the value/score of each image . i find it MVP
 const differentmoles = [
-  { src: "/looney_tune.png", points: 20 }, //it will increase score by 20 points
-  { src: "/looney_tune2.png", points: 10 }, //it will increas score by 5 points
+  { src: "/looney_tune.png", points: 30 }, //it will increase score by 20 points
+  { src: "/looney_tune2.png", points: 20 }, //it will increas score by 5 points
   { src: "/bugs_bunny.png", points: -10 }, //it will decrease score by 10 points.
 ]
 
@@ -55,7 +55,7 @@ const countDown = () => {
 
 const start = () => {
   finalScore.textContent = "" //this code will clear previous final score msg
-  moleTimer = setInterval(showMole, 1600)
+  moleTimer = setInterval(showMole, 1300)
 
   countdownTimer = setInterval(countDown, 1000) //added start countdown
 
@@ -86,6 +86,20 @@ const showMole = () => {
   // this is to pick random hole
   let randomSq = Math.floor(Math.random() * NumOfMole)
   let sqIndex = holes[randomSq]
+
+  //this is for to check the probability of the character showing randomly on each mole
+  let randomNumber = Math.random()
+  let character = "duck"
+  if (randomNumber < 0.5) {
+    // 50% chance
+    character = "bugs_bunny.png"
+  } else if (randomNumber < 0.8) {
+    // 30% chance (0.5 to 0.8)
+    character = "looney_tune.png"
+  } else {
+    // 20% chance (0.8 to 1)
+    character = "looney_tune2.png"
+  }
 
   //this is to pick random mole images we added
   const randomMole =

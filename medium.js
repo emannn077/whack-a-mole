@@ -2,7 +2,7 @@
 
 const NumOfMole = 9
 const gameDuration = 25
-const moleTime = 1300 //milliseconds
+const moleTime = 1100 //milliseconds
 let score = 0
 let moleTimeFinish = null
 let timeLeft = gameDuration
@@ -55,7 +55,7 @@ const countDown = () => {
 
 const start = () => {
   finalScore.textContent = "" //this code will clear previous final score msg
-  moleTimer = setInterval(showMole, 1300)
+  moleTimer = setInterval(showMole, 1100)
 
   countdownTimer = setInterval(countDown, 1000) //added start countdown
 
@@ -87,6 +87,20 @@ const showMole = () => {
   let randomSq = Math.floor(Math.random() * NumOfMole)
   let sqIndex = holes[randomSq]
 
+  //this is for to check the probability of the character showing randomly on each mole
+  let randomNumber = Math.random()
+  let character = "scary"
+  if (randomNumber < 0.5) {
+    // 50% chance
+    character = "scary2.png"
+  } else if (randomNumber < 0.8) {
+    // 30% chance (0.5 to 0.8)
+    character = "scary1.png"
+  } else {
+    // 20% chance (0.8 to 1)
+    character = "Annabelle-.png"
+  }
+
   //this is to pick random mole images we added
   const randomMole =
     differentmoles[Math.floor(Math.random() * differentmoles.length)]
@@ -107,19 +121,6 @@ const showMole = () => {
   }
 
   sqIndex.appendChild(moleImg)
-}
-//this is for to check the probability of the character showing randomly on each mole
-let randomNumber = Math.random()
-let character = "scary"
-if (randomNumber < 0.5) {
-  // 50% chance
-  character = "scary2.png"
-} else if (randomNumber < 0.8) {
-  // 30% chance (0.5 to 0.8)
-  character = "scary1.png"
-} else {
-  // 20% chance (0.8 to 1)
-  character = "Annabelle-.png"
 }
 
 startBtn.addEventListener("click", start)
