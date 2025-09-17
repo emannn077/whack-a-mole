@@ -4,6 +4,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: 100dvh;
+  margin: 0;
 }
 h1 {
   font-family: "Micro 5 Charted", sans-serif;
@@ -70,13 +72,14 @@ h2 {
   font-style: italic;
 }
 
-main {
+/* main {
+  display: flex;
+  justify-content: center;
   align-items: center;
   text-align: center;
-  display: flex;
   flex-direction: column;
   padding: 110px;
-}
+} */
 .mode {
   display: flex;
   flex-direction: row;
@@ -107,8 +110,8 @@ main {
 }
 
 #startBtn {
-  display: block;
-  margin: 20px auto;
+  display: flex;
+  margin: 10px auto;
   justify-content: center;
   align-items: center;
   color: #fff;
@@ -135,9 +138,7 @@ main {
   padding: 4px;
   font-size: 40px;
   color: rgb(231, 141, 141);
-  width: 30vw;
-  height: 80vh;
-  gap: 5px;
+  gap: 15px;
 }
 
 .hole {
@@ -146,7 +147,7 @@ main {
   align-items: flex-end; /* mole pops from bottom */
   background-color: lightblue;
   border-radius: 50%;
-  width: 300px;
+  width: 350px;
   height: 300px;
   overflow: hidden;
   position: relative;
@@ -162,10 +163,11 @@ main {
 .moleImg {
   position: relative;
   bottom: 0; /* stays to bottom */
-  width: 500px;
-  height: 250px;
+  width: 250px;
+  height: 300px;
   cursor: pointer;
   /* border-radius: 50%; */
+  z-index: 2;
 
   transition: transform 0.2s;
 }

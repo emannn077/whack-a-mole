@@ -42,7 +42,7 @@ const endGame = () => {
     bestScoreSection.textContent = `Best Score: ${bestScore}`
   }
 
-  finalScore.textContent = `Timer is up! Your final score is ${score}` ///this is to show the final score msg
+  finalScore.textContent = `Timer is up! Your Final score is ${score}` ///this is to show the final score msg
 }
 const countDown = () => {
   timeLeft-- //its like timeLeft= timeLeft-1
