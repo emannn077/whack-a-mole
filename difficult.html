@@ -14,8 +14,6 @@
       href="https://fonts.googleapis.com/css2?family=Micro+5+Charted&display=swap"
       rel="stylesheet"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap"
       rel="stylesheet"
@@ -24,22 +22,50 @@
     <script defer src="difficult.js"></script>
     <title>Whack-A-Mole</title>
   </head>
+
   <body>
+    <audio
+      id="bgMusic"
+      src="/sounds/harry-potter-music.mp3"
+      autoplay
+      loop
+    ></audio>
+
     <h3>Let's SMASH them !!</h3>
     <h4>Level: DIFFICULT</h4>
+
     <div class="main-box">
       <div id="score">
-        <img src="/score_icon.png" class="icon" alt="score icon" /> Score: 0
+        <img src="/images/score_icon.png" class="icon" alt="score icon" />
+        Score: 0
       </div>
       <div id="Timer">
-        <img src="/time_icon.png" class="icon" alt="timer icon" /> Time: 0
+        <img src="/images/time_icon.png" class="icon" alt="timer icon" /> Time:
+        0
       </div>
       <div id="bestScore">
-        <img src="/best_icon.png" class="icon" alt="best icon" /> Best Score: 0
+        <img src="/images/best_icon.png" class="icon" alt="best icon" /> Best
+        Score: 0
       </div>
     </div>
 
     <div id="finalScore"></div>
+
+    <div class="instructions-box">
+      <h5>Instructions:</h5>
+      <div class="instruction-item">
+        <img src="/images/voldemort.png" alt="voldemort" />
+        <span>+40 points</span>
+      </div>
+      <div class="instruction-item">
+        <img src="/images/the_gang.png" alt="the gang" />
+        <span>-10 points</span>
+      </div>
+      <div class="instruction-item">
+        <img src="/images/dobby.png" alt="dobby" />
+        <span>-5 points</span>
+      </div>
+    </div>
 
     <div class="grid">
       <div class="hole" index="0"></div>
@@ -52,10 +78,11 @@
       <div class="hole" index="7"></div>
       <div class="hole" index="8"></div>
     </div>
+
     <button id="startBtn">Start Whacking</button>
 
     <div class="cursor">
-      <img src="/Whack.png" />
+      <img src="/images/Whack.png" />
     </div>
   </body>
 </html>

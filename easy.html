@@ -25,17 +25,25 @@
     <title>Whack-A-Mole</title>
   </head>
   <body>
+    <audio
+      id="bgMusic"
+      src="/sounds/8-music-looney-theme-loop.mp3"
+      autoplay
+      loop
+    ></audio>
     <h3>Let's SMASH them !!</h3>
     <h4>Level: EASY</h4>
     <div class="main-box">
       <div id="score">
-        <img src="/score_icon.png" class="icon" alt="score icon" /> Score: 0
+        <img src="/images/score_icon.png" class="icon" alt="score icon" />
+        Score: 0
       </div>
       <div id="Timer">
-        <img src="/time_icon.png" class="icon" alt="time icon" /> Time: 0
+        <img src="/images/time_icon.png" class="icon" alt="time icon" /> Time: 0
       </div>
       <div id="bestScore">
-        <img src="/best_icon.png" class="icon" alt="best icon" />Best Score: 0
+        <img src="/images/best_icon.png" class="icon" alt="best icon" />Best
+        Score: 0
       </div>
     </div>
     <div id="finalScore"></div>
@@ -51,10 +59,28 @@
       <div class="hole" index="7"></div>
       <div class="hole" index="8"></div>
     </div>
+    <div class="instructions-box">
+      <h5>Instructions:</h5>
+      <div class="instruction-item">
+        <img src="/images/looney_tune.png" alt="Looney Tune" />
+        <span>+30 points</span>
+      </div>
+
+      <div class="instruction-item">
+        <img src="/images/looney_tune2.png" alt="Looney Tune 2" />
+        <span>+20 points</span>
+      </div>
+
+      <div class="instruction-item">
+        <img src="/images/bugs_bunny.png" alt="Bugs Bunny" />
+        <span>-10 points</span>
+      </div>
+    </div>
+
     <button id="startBtn">Start Whacking</button>
 
     <div class="cursor">
-      <img src="/Whack.png" />
+      <img src="/images/Whack.png" />
     </div>
   </body>
 </html>

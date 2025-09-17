@@ -18,11 +18,15 @@ const finalScore = document.querySelector("#finalScore")
 let bestScore = localStorage.getItem("bestScore") || 0
 const bestScoreSection = document.querySelector("#bestScore")
 
-//i used array to store the value/score of each image . i find it MVP
+//i used array to store the value/score of each image . i find it MVP. and i added sound to each image so when i whack it. It will create sound according to the character :)
 const differentmoles = [
-  { src: "/looney_tune.png", points: 30 }, //it will increase score by 20 points
-  { src: "/looney_tune2.png", points: 20 }, //it will increas score by 5 points
-  { src: "/bugs_bunny.png", points: -10 }, //it will decrease score by 10 points.
+  { src: "/images/looney_tune.png", points: 30, sound: "/sounds/ohh.mp3" }, //it will increase score by 20 points
+  { src: "/images/looney_tune2.png", points: 20, sound: "/sounds/ouch.mp3" }, //it will increas score by 5 points
+  {
+    src: "/images/bugs_bunny.png",
+    points: -10,
+    sound: "/sounds/hey-what-did-i-do.mp3",
+  }, //it will decrease score by 10 points.
 ]
 
 //for bestScore
@@ -45,7 +49,7 @@ const endGame = () => {
 }
 const countDown = () => {
   timeLeft-- //its like timeLeft= timeLeft-1
-  timerSection.innerHTML = `<img src="time_icon.png" class="icon" alt="time icon"/>Time: ${timeLeft}s`
+  timerSection.innerHTML = `<img src="/images/time_icon.png" class="icon" alt="time icon"/>Time: ${timeLeft}s`
 
   if (timeLeft <= 0) {
     endGame() //it will stop the game when timer is up
@@ -60,9 +64,9 @@ const start = () => {
 
   score = 0
   timeLeft = gameDuration
-  scoreSection.innerHTML = `<img src="score_icon.png" class="icon" alt="score icon"/> Score: ${score}`
-  timerSection.innerHTML = `<img src="time_icon.png" class="icon" alt="time icon"/>Time: ${timeLeft}s`
-  bestScoreSection.innerHTML = `<img src="best_icon.png" class="icon" alt="best icon"/> Best Score: ${bestScore}`
+  scoreSection.innerHTML = `<img src="/images/score_icon.png" class="icon" alt="score icon"/> Score: ${score}`
+  timerSection.innerHTML = `<img src="/images/time_icon.png" class="icon" alt="time icon"/>Time: ${timeLeft}s`
+  bestScoreSection.innerHTML = `<img src="/images/best_icon.png" class="icon" alt="best icon"/> Best Score: ${bestScore}`
 }
 
 //i made whack animation using the image and added the function by using a reference/guidance through a youtube vidoes for understanding the concept of it,on how to make whack on cursor and how to add whacking animation in it
@@ -109,33 +113,23 @@ const showMole = () => {
   const moleImg = document.createElement("img")
   moleImg.src = randomMole.src
   moleImg.classList.add("moleImg")
-  // moleImg.style.width = "80px"
   moleImg.style.cursor = "pointer"
 
   //add bounce effect when mole comes
   moleImg.classList.add("bounce-once")
 
-  //this logic is for if i click on the image mole it will give scores accroding to it
+  //this logic is for if i click on the image mole it will give scores accroding to it. and since i added sound and it should be only heard when smacked i added in onclicksection
   moleImg.onclick = () => {
     score += randomMole.points
     scoreSection.textContent = `Score: ${score}`
     sqIndex.innerHTML = ""
+    const moleSound = new Audio(randomMole.sound)
+    moleSound.play().catch((err) => console.log(err))
   }
 
   sqIndex.appendChild(moleImg)
 }
-//this is for to check the probability of the character showing randomly on each mole
-let randomNumber = Math.random()
-let character = "duck"
-if (randomNumber < 0.5) {
-  // 50% chance
-  character = "annabelle.png"
-} else if (randomNumber < 0.8) {
-  // 30% chance (0.5 to 0.8)
-  character = "donkey.png"
-} else {
-  // 20% chance (0.8 to 1)
-  character = "poorduck.png"
-}
+const bgMusic = document.querySelector("#bgMusic")
+bgMusic.volume = 0.2
 
 startBtn.addEventListener("click", start)

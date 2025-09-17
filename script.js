@@ -3,7 +3,18 @@ const levelEasy = document.querySelector("#easy")
 const levelMedium = document.querySelector("#medium")
 const levelDifficult = document.querySelector("#difficult")
 
-//Function for Logic
+//for the sound of buttons
+const playClickSound = () => {
+  const clickSound = new Audio("/sounds/Toom Click.wav")
+  clickSound.currentTime = 0
+  clickSound.play()
+}
+//for navigating to the specific page i clicked button on
+const navigate = (level) => {
+  setTimeout(() => {
+    window.location.href = `${level}.html`
+  }, 200)
+}
 
 const nextPage = (level) => {
   window.location.href = `${level}.html`
@@ -22,11 +33,14 @@ const handleClick = (gameLevel) => {
 //event Listeners
 
 levelEasy.addEventListener("click", () => {
-  handleClick("easy")
+  playClickSound()
+  navigate("easy")
 })
 levelMedium.addEventListener("click", () => {
-  handleClick("medium")
+  playClickSound()
+  navigate("medium")
 })
 levelDifficult.addEventListener("click", () => {
-  handleClick("difficult")
+  playClickSound()
+  navigate("difficult")
 })

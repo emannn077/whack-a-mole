@@ -20,9 +20,9 @@ const bestScoreSection = document.querySelector("#bestScore")
 
 //i used array to store the value/score of each image . i find it MVP
 const differentmoles = [
-  { src: "/scary2.png", points: 20 }, //it will increase score by 20 points
-  { src: "/Annabelle-.png", points: 10 }, //it will increas score by 5 points
-  { src: "/scary1.png", points: -10 }, //it will decrease score by 10 points.
+  { src: "/images/scary2.png", points: 20 }, //it will increase score by 20 points
+  { src: "/images/Annabelle-.png", points: 10 }, //it will increas score by 5 points
+  { src: "/images/scary1.png", points: -10, sound: "/sounds/oh.mp3" }, //it will decrease score by 10 points.
 ]
 
 //for bestScore
@@ -45,7 +45,7 @@ const endGame = () => {
 }
 const countDown = () => {
   timeLeft-- //its like timeLeft= timeLeft-1
-  timerSection.innerHTML = `<img src="time_icon.png" class="icon" alt="time icon"/>Time: ${timeLeft}s`
+  timerSection.innerHTML = `<img src="/images/time_icon.png" class="icon" alt="time icon"/>Time: ${timeLeft}s`
   if (timeLeft <= 0) {
     endGame() //it will stop the game when timer is up
   }
@@ -59,9 +59,9 @@ const start = () => {
 
   score = 0
   timeLeft = gameDuration
-  scoreSection.innerHTML = `<img src="score_icon.png" class="icon" alt="score icon"/> Score: ${score}`
-  timerSection.innerHTML = `<img src="time_icon.png" class="icon" alt="time icon"/>Time: ${timeLeft}s`
-  bestScoreSection.innerHTML = `<img src="best_icon.png" class="icon" alt="best icon"/> Best Score: ${bestScore}`
+  scoreSection.innerHTML = `<img src="/images/score_icon.png" class="icon" alt="score icon"/> Score: ${score}`
+  timerSection.innerHTML = `<img src="/images/time_icon.png" class="icon" alt="time icon"/>Time: ${timeLeft}s`
+  bestScoreSection.innerHTML = `<img src="/images/best_icon.png" class="icon" alt="best icon"/> Best Score: ${bestScore}`
 }
 
 //i made whack animation using the image and added the function by using a reference/guidance through a youtube vidoes for understanding the concept of it,on how to make whack on cursor and how to add whacking animation in it
@@ -117,9 +117,12 @@ const showMole = () => {
     score += randomMole.points
     scoreSection.textContent = `Score: ${score}`
     sqIndex.innerHTML = ""
+    const moleSound = new Audio(randomMole.sound)
+    moleSound.play().catch((err) => console.log(err))
   }
 
   sqIndex.appendChild(moleImg)
 }
-
+const bgMusic = document.querySelector("#bgMusic")
+bgMusic.volume = 0.6
 startBtn.addEventListener("click", start)
