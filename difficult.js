@@ -17,7 +17,6 @@ let countdownTimer
 const finalScore = document.querySelector("#finalScore")
 let bestScore = localStorage.getItem("bestScore") || 0
 const bestScoreSection = document.querySelector("#bestScore")
-bestScoreSection.textContent = `Best Score: ${bestScore}`
 
 //i used array to store the value/score of each image . i find it MVP
 const differentmoles = [
@@ -46,7 +45,7 @@ const endGame = () => {
 }
 const countDown = () => {
   timeLeft-- //its like timeLeft= timeLeft-1
-  timerSection.textContent = `Time: ${timeLeft}s`
+  timerSection.innerHTML = `<img src="time_icon.png" class="icon" alt="time icon"/>Time: ${timeLeft}s`
 
   if (timeLeft <= 0) {
     endGame() //it will stop the game when timer is up
@@ -61,8 +60,9 @@ const start = () => {
 
   score = 0
   timeLeft = gameDuration
-  scoreSection.textContent = `Score: ${score}`
-  timerSection.textContent = `Time: ${timeLeft}s`
+  scoreSection.innerHTML = `<img src="score_icon.png" class="icon" alt="score icon"/> Score: ${score}`
+  timerSection.innerHTML = `<img src="time_icon.png" class="icon" alt="time icon"/>Time: ${timeLeft}s`
+  bestScoreSection.innerHTML = `<img src="best_icon.png" class="icon" alt="best icon"/> Best Score: ${bestScore}`
 }
 
 //i made whack animation using the image and added the function by using a reference/guidance through a youtube vidoes for understanding the concept of it,on how to make whack on cursor and how to add whacking animation in it
